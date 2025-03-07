@@ -64,7 +64,7 @@ const puppeteer = require('puppeteer');
   // (If the page doesn't load the external JS automatically, you can inject it.)
   await page.addScriptTag({ url: 'https://telegram.geagle.online/assets/index-BC9KxTS7.js' });
   console.log('[+] External JS injected.');
-  await page.waitForTimeout(5000); // wait 5 seconds for initialization
+  await page.waitFor(5000); // wait 5 seconds for initialization
 
   // --- Locate the Coin Element ---
   // Based on your Kiwi session, the coin element should be visible.
