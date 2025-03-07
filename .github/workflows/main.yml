@@ -1,0 +1,27 @@
+name: Run Tap Script
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/3 * * * *'  # runs every 3 minutes; adjust as needed
+
+jobs:
+  run-tap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # adjust to your preferred Node version
+
+      - name: Install Dependencies
+        run: npm install puppeteer
+
+      - name: Run Tap Script
+        run: node main.js
